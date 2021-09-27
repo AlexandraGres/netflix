@@ -1,0 +1,21 @@
+@import '../../../assets/variables.scss';
+
+.Input {
+  margin-bottom: 15px;
+  position: relative;
+
+  input {
+    outline: none;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 3px;
+    background: $text-light;
+    min-width: 250px;
+    font-size: 16px;
+  }
+
+  .error {
+    color: $red;
+    margin-bottom: 5px;
+  }
+}

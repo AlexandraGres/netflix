@@ -1,0 +1,20 @@
+@import '../../../assets/variables.scss';
+
+.MenuToggle {
+  position: fixed;
+  top: 30px;
+  left: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  color: $white;
+  z-index: 100;
+  transition: opacity, left .22s ease-in;
+
+  &.open {
+    left: 140px;
+  }
+
+  &:hover {
+    opacity: .7;
+  }
+}

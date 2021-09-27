@@ -1,0 +1,26 @@
+@import '../../assets/variables.scss';
+
+.NotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: $white;
+
+  h1 {
+    font-size: 150px;
+    opacity: .2;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    opacity: .2;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: $red;
+  }
+}
