@@ -7,10 +7,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $white;
+  line-height: 1.5;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+  font-weight: normal;
 }
 
 a {
@@ -19,6 +25,7 @@ a {
 
   &:hover {
     opacity: 0.7;
+    transition: .3s;
   }
 }
 
@@ -29,6 +36,10 @@ ul {
   li {
     list-style-type: none;
   }
+}
+
+p {
+  margin: 10px 0;
 }
 
 .pagination {

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
+import Error from '../../components/Error/Error'
 import { auth } from '../../store/actions/auth';
 import { NavLink } from 'react-router-dom';
 import bg from '../../assets/img/login_page_bg.jpg'
@@ -14,6 +15,8 @@ const validateEmail = email => {
 
 const Auth = props => {
 
+  let error = useSelector((state) => state.auth.error)
+
   const dispatch = useDispatch()
 
   const [isFormValid, setIsFormValid] = useState(false)
@@ -22,7 +25,7 @@ const Auth = props => {
       email: {
         value: '',
         type: 'email',
-        errorMessage: 'Input valid email',
+        errorMessage: 'Enter valid email',
         valid: false,
         touched: false,
         validation: {
@@ -33,7 +36,7 @@ const Auth = props => {
       password: {
         value: '',
         type: 'password',
-        errorMessage: 'Input valid password',
+        errorMessage: 'Password must be at least 6 characters',
         valid: false,
         touched: false,
         validation: {
@@ -47,11 +50,12 @@ const Auth = props => {
   const loginHandler = () => {
     dispatch(
       auth(
-      formControls.email.value,
-      formControls.password.value,
-      true
+        formControls.email.value,
+        formControls.password.value,
+        true
+      )
     )
-  )}
+  }
 
   const registerHandler = () => {
     dispatch(
@@ -60,7 +64,8 @@ const Auth = props => {
         formControls.password.value,
         false
       )
-    )}
+    )
+  }
 
   const submitHandler = event => {
     event.preventDefault()
@@ -113,13 +118,18 @@ const Auth = props => {
       <div className={classes.bg}>
         <img src={bg} alt="background" />
       </div>
+
+      {error
+        ? <Error message={error} delay={3000} />
+        : null
+      }
       <div className={classes.form}>
 
-      {props.match.url === '/login'
-        ? <h1>Login</h1>
-        : <h1>Register</h1>
-      }
-        
+        {props.match.url === '/login'
+          ? <h1>Login</h1>
+          : <h1>Register</h1>
+        }
+
         <form onSubmit={submitHandler}>
           <Input
             type={formControls.email.type}
@@ -147,6 +157,7 @@ const Auth = props => {
               <Button
                 onClick={loginHandler}
                 disabled={!isFormValid}
+                type="submit"
               > Login
               </Button>
               <p className={classes.message}>If you don't have account, <NavLink to="/signUp" exact>click here</NavLink></p>
@@ -154,6 +165,7 @@ const Auth = props => {
             : <Button
               onClick={registerHandler}
               disabled={!isFormValid}
+              type="submit"
             > Create Account
             </Button>
           }

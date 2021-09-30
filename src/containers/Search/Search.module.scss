@@ -1,0 +1,33 @@
+.Search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  p {
+    text-align: center;
+  }
+}
+
+.form {
+  display: flex;
+  width: 870px;
+  margin: auto;
+
+  button {
+    width: 60px;
+    height: 50px;
+    z-index: 100;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  div {
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+}
+

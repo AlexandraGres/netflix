@@ -1,0 +1,18 @@
+.Seasons {
+  margin-top: 30px;
+
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+
+    .season {
+      margin: 0 15px 30px 0;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 180px;
+      }
+    }
+  }
+}

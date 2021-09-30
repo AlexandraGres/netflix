@@ -1,0 +1,43 @@
+@import '../../assets/variables.scss';
+
+.Episodes {
+  position: relative;
+
+  .list {
+    max-width: 50%;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: solid 1px $black;
+
+      p {
+        flex-grow: 1;
+      }
+
+      i {
+        margin-left: 20px;
+        font-size: 24px;
+        transition: .3s;
+        color: $red;
+
+        &:hover {
+          cursor: pointer;
+          opacity: .7;
+        }
+      }
+    }
+  }
+
+  .episode {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 45%;
+
+    img {
+      width: 100%;
+    }
+  }
+}

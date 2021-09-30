@@ -3,7 +3,7 @@ import classes from './Drawer.module.scss'
 import { NavLink } from 'react-router-dom';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 import { connect, useSelector } from 'react-redux';
-import { FAVORITE, HOME, LOGIN, LOGOUT, PROFILE, SHOWS } from '../../../common/constants/routes';
+import { HOME, LOGIN, LOGOUT, MYLIST, PROFILE, SEARCH } from '../../../common/constants/routes';
 
 const Drawer = ({onClose, isOpen}) => {
 
@@ -34,12 +34,12 @@ const Drawer = ({onClose, isOpen}) => {
 
   const links = [    
     { to: HOME, label: 'Home', exact: true },
-    { to: SHOWS, label: 'Shows', exact: true },
+    { to: SEARCH, label: 'Search', exact: true },
   ]
 
   if (isAuthenticated) {
     links.push({ to: PROFILE, label: 'Profile', exact: true })
-    links.push({ to: FAVORITE, label: 'Favorite', exact: true })
+    links.push({ to: MYLIST, label: 'My List', exact: true })
     links.push({ to: LOGOUT, label: 'Logout', exact: true })
   } else {
     links.push({ to: LOGIN, label: 'Login', exact: true })    

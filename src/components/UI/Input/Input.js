@@ -10,11 +10,6 @@ const Input = props => {
 
   return (
     <div className={cls.join(' ')}>
-      {
-        isInvalid(props)
-          ? <p className={classes.error}>{props.errorMessage || 'Enter valid data'}</p>
-          : null
-      }
       <label htmlFor={props.id}>{props.label}</label>
       <input
         type={inputType}
@@ -22,7 +17,12 @@ const Input = props => {
         value={props.value}
         onChange={props.onChange}
         placeholder={props.placeholder}
-      />      
+      />
+      {
+        isInvalid(props)
+          ? <p className={classes.error}>{props.errorMessage || 'Enter valid data'}</p>
+          : null
+      }
     </div>
   )
 }

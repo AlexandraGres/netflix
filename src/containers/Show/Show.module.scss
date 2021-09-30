@@ -1,3 +1,26 @@
+@import "../../assets/variables.scss";
+
 .Show {
-  
+  h1 {
+    color: $blue;
+  }
+
+  .inner {
+    display: flex;
+
+    .img {
+      width: 210px;
+    }
+
+    .summary {
+      flex-shrink: 5;
+
+      p {
+        margin-top: 0;
+        margin-left: 15px;
+        padding: 0 15px;
+        text-align: justify;
+      }
+    }
+  }  
 }

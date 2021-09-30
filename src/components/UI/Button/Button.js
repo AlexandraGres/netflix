@@ -1,7 +1,7 @@
 import classes from './Button.module.scss'
 
 const Button = ({type, disabled, onClick, children}) => {
-  const cls = [classes.Button, type]
+  const cls = [classes.Button]
 
   return (
     <button

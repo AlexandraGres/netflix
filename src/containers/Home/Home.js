@@ -4,9 +4,11 @@ import Card from '../../components/Card/Card'
 import Loader from '../../components/UI/Loader/Loader'
 import { fetchShows } from '../../store/actions/show'
 import ReactPaginate from 'react-paginate'
-import classes from './Shows.module.scss'
+import classes from './Home.module.scss'
+import { SHOWS } from '../../common/constants/routes'
+import imgNotFound from '../../assets/img/img-notfound.png'
 
-const Shows = () => {
+const Home = () => {
 
   const shows = useSelector((state) => state.show.shows)
   const loading = useSelector((state) => state.show.loading)
@@ -14,12 +16,17 @@ const Shows = () => {
 
   const renderShows = () => {
     return currentItems.map(show => {
+      let img = imgNotFound
+      if (show.image) {
+        img = show.image.medium
+      }
+
       return (
         <Card
           key={show.id}
-          image={show.image.medium}
+          image={img}
           name={show.name}
-          url={show.id}
+          url={`${SHOWS}/${show.id}`}
         />
       )
     })
@@ -46,7 +53,7 @@ const Shows = () => {
       {loading || shows.length === 0
         ? <Loader />
         : <>
-          <div className={classes.Shows}>
+          <div className={classes.Home}>
             {renderShows()}
           </div>
           <ReactPaginate
@@ -67,4 +74,4 @@ const Shows = () => {
   )
 }
 
-export default connect()(Shows)
+export default connect()(Home)

@@ -5,17 +5,37 @@
   border: none;
   border-radius: 3px;
   color: $white;
-  background: $red;
   font-size: 16px;
   padding: 16px 20px;
   text-transform: uppercase;
 
   &:disabled {
     background: $dark-red;
-    opacity: 0.7;
+    opacity: 0.5;
+
+    &:hover {
+      cursor: auto;
+    }
   }
 
-  &:focus {
-    background: $dark-red;
+  &:hover {
+    cursor: pointer;
   }
+
+  &[type="button"] {
+    background: $button-gray;
+
+    &:focus {
+      background: $button-gray-focus;
+    }
+  }
+
+  &[type="submit"] {
+    background: $red;
+
+    &:focus {
+      background: $dark-red;
+    }
+  }  
 }
+

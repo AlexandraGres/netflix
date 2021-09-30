@@ -1,0 +1,17 @@
+@import '../../assets/variables.scss';
+
+.ShowInfo {
+  width: 30%;
+  margin-left: 20px;
+  padding: 15px 20px;
+  background: $black;
+  border-radius: 5px;
+
+  h2 {
+    font-weight: normal;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: $blue;
+    text-align: center;
+  }
+}

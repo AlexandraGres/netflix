@@ -1,0 +1,15 @@
+@import '../../assets/variables.scss';
+
+.Error {
+  position: absolute;
+  min-width: 370px;
+  top: 50px;
+  left: 50%;
+  margin-left: -215px; 
+  padding: 20px 30px;
+  border-radius: 3px;
+  text-align: center;
+  background: $red;
+  opacity: .7;
+  z-index: 100;
+}
